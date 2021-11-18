@@ -27,17 +27,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName4"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Email"
-        android:background="@drawable/edittext_rounded_corner_rectangle"
-        app:layout_constraintStart_toStartOf="@+id/textView14"
-        app:layout_constraintTop_toBottomOf="@+id/textView14" />
-
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
@@ -53,14 +42,14 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName5"
+        android:id="@+id/Text_Fid"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginBottom="70dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
         android:inputType="textPersonName"
-        android:text="ID"
+        android:hint="ID"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.508"
@@ -83,17 +72,17 @@
         app:layout_constraintVertical_bias="0.507" />
 
     <EditText
-        android:id="@+id/editTextTextPersonName6"
+        android:id="@+id/Text_PEmail"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginStart="27dp"
         android:layout_marginTop="385dp"
         android:layout_marginEnd="27dp"
         android:layout_marginBottom="270dp"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="PW"
         android:background="@drawable/edittext_rounded_corner_rectangle"
+        android:ems="10"
+        android:hint="Email"
+        android:inputType="textPersonName"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.571"
