@@ -10,8 +10,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.widget.Toast;
 
-import com.google.android.material.textfield.TextInputEditText;
-
 public class LogInActivity extends AppCompatActivity {
     TextView FindIdText_btn; //id 찾기 글자를 눌렀을 때 처리를 위한 변수
     TextView FindPwText_btn; //pw 찾기 글자를 눌렀을 때 처리를 위한 변수
@@ -21,7 +19,7 @@ public class LogInActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.login_form);
+        setContentView(R.layout.activity_login);
         FindIdText_btn = findViewById(R.id.textView3);
         FindPwText_btn = findViewById(R.id.textView4);
         SignUp_btn = findViewById(R.id.textView6);
@@ -37,7 +35,12 @@ public class LogInActivity extends AppCompatActivity {
                 String id = Text_id.getText().toString();
                 String pw = Text_pw.getText().toString();
 
-                Toast.makeText(getApplicationContext(), pw, Toast.LENGTH_LONG).show();;
+
+
+                //Toast.makeText(getApplicationContext(), pw, Toast.LENGTH_LONG).show();;
+
+                Intent intent_04 = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(intent_04);
             }
         });
 
