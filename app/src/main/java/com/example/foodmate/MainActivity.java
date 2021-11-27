@@ -55,4 +55,10 @@ public class MainActivity extends AppCompatActivity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    //뒤로가기 방지
+    @Override public void onBackPressed() {
+        //super.onBackPressed();
+    }
+
 }
