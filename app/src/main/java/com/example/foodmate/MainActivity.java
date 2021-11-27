@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         getMenuInflater().inflate(R.menu.appbar_action, menu);
         return true;
     }
-    // 안녕하세요
+
     // Toolbar의 profile button 설정(누르면 Profile activity로 이동)
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
