@@ -42,7 +42,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
-        android:id="@+id/Text_Fid"
+        android:id="@+id/Text_PW_ID"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginBottom="70dp"
@@ -72,7 +72,7 @@
         app:layout_constraintVertical_bias="0.507" />
 
     <EditText
-        android:id="@+id/Text_PEmail"
+        android:id="@+id/Text_PW_Email"
         android:layout_width="350dp"
         android:layout_height="60dp"
         android:layout_marginStart="27dp"

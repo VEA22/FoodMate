@@ -8,12 +8,14 @@ import android.widget.EditText;
 
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
 public class LogInActivity extends AppCompatActivity {
     TextView FindIdText_btn; //id 찾기 글자를 눌렀을 때 처리를 위한 변수
     TextView FindPwText_btn; //pw 찾기 글자를 눌렀을 때 처리를 위한 변수
+    TextView SignUp_btn;    //회원가입 글자를 눌렀을 때 처리를 위한 변수
     Button login_button; // 로그인 버튼을 눌렀을 때 처리를 위한 변수
 
     @Override
@@ -22,6 +24,7 @@ public class LogInActivity extends AppCompatActivity {
         setContentView(R.layout.login_form);
         FindIdText_btn = findViewById(R.id.textView3);
         FindPwText_btn = findViewById(R.id.textView4);
+        SignUp_btn = findViewById(R.id.textView6);
         login_button = (Button) findViewById(R.id.login_button);
 
         //로그인 버튼 클릭시 입력창에 있는 id pw 저장
@@ -33,6 +36,8 @@ public class LogInActivity extends AppCompatActivity {
 
                 String id = Text_id.getText().toString();
                 String pw = Text_pw.getText().toString();
+
+                Toast.makeText(getApplicationContext(), pw, Toast.LENGTH_LONG).show();;
             }
         });
 
@@ -56,8 +61,15 @@ public class LogInActivity extends AppCompatActivity {
             }
         });
 
+        SignUp_btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            //
+            public void onClick(View view) {
+                Intent intent_03 = new Intent(getApplicationContext(), SignupActivity.class);
+                startActivity(intent_03);
+            }
+        });
+
     }
-
-
 
 }
