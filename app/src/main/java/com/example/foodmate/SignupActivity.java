@@ -19,7 +19,7 @@ import com.google.firebase.auth.FirebaseAuth;
 
 public class SignupActivity extends AppCompatActivity {
     private FirebaseAuth firebaseAuth;
-    private TextView editTextID;
+    //private TextView editTextID;
     private TextView editTextPW;
     private TextView editTextName;
     private TextView editTextMail;
@@ -35,8 +35,9 @@ public class SignupActivity extends AppCompatActivity {
         firebaseAuth = FirebaseAuth.getInstance(); //파이어베이스 계정 인스턴스 get
 
         //editTextID = findViewById(R.id.textView12);
-        editTextPW = findViewById(R.id.textView17);
         editTextMail = findViewById(R.id.Text_SignUp_Email);
+        editTextPW = findViewById(R.id.textView17);
+        editTextName = findViewById(R.id.textView7);
         editTextPhone = findViewById(R.id.textView18);
         SignUp_btn = findViewById(R.id.Sign_Up_Button);
 
@@ -56,7 +57,7 @@ public class SignupActivity extends AppCompatActivity {
 
                 if (!editTextMail.getText().toString().equals("") && !editTextPW.getText().toString().equals("")) {
                     // 아이디, 비밀번호가 공백이 아닌 경우
-                    createUser(editTextID.getText().toString(), editTextPW.getText().toString(), editTextName.getText().toString(), editTextMail.getText().toString(), editTextPhone.getText().toString());
+                    createUser(editTextMail.getText().toString(), editTextPW.getText().toString(), editTextName.getText().toString(), editTextPhone.getText().toString());
                 } else {
                     // 아이디와 비밀번호가 공백인 경우
                     Toast.makeText(SignupActivity.this, "아이디와 비밀번호를 입력하세요.", Toast.LENGTH_LONG).show();
@@ -65,7 +66,7 @@ public class SignupActivity extends AppCompatActivity {
         });
     }
 
-    private void createUser(String id, String pw, String name, String mail, String phone) {
+    private void createUser(String mail, String pw, String name, String phone) {
         firebaseAuth.createUserWithEmailAndPassword(mail, pw)
                 .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
                     @Override
