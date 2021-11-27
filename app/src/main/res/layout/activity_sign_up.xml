@@ -21,6 +21,8 @@
         android:layout_marginBottom="10dp"
         android:text="Email address"
         android:textSize="25sp" />
+
+
     <EditText
         android:id="@+id/Text_SignUp_Email"
         android:layout_width="330dp"
@@ -30,6 +32,7 @@
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
         android:inputType="textEmailAddress" />
+
 
     <TextView
         android:id="@+id/textView17"
@@ -63,15 +66,14 @@
 
 
     <EditText
-        android:id="@+id/Text_SignUp_Name"
+        android:id="@+id/Text_SignUp_NAME"
         android:layout_width="330dp"
         android:layout_height="40dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
-        android:inputType="textPassword" />
-
+        android:inputType="textEmailAddress" />
 
     <TextView
         android:id="@+id/textView18"
