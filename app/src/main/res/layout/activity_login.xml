@@ -18,7 +18,7 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="42dp"
         android:text="ID"
         android:textSize="28sp" />
 
@@ -36,7 +36,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="35dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="8dp"
         android:text="PASSWORD"
         android:textSize="28sp" />
@@ -65,7 +65,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="13dp"
         android:text="Forgot ID?"
         android:textSize="20sp" />
@@ -74,7 +74,7 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="37dp"
+        android:layout_marginStart="42dp"
         android:layout_marginTop="5dp"
         android:text="Forgot Passord?"
         android:textSize="20sp" />

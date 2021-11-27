@@ -1,108 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context=".FindPwActivity">
 
     <ImageView
-        android:id="@+id/imageView6"
-        android:layout_width="208dp"
-        android:layout_height="339dp"
-        android:layout_marginBottom="448dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
         app:srcCompat="@drawable/foodmate" />
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="56dp"
-        android:text="Password"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView6"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView14"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="320dp"
-        android:layout_marginBottom="180dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="10dp"
         android:text="ID"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.441"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/Text_PW_ID"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_marginBottom="70dp"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
         android:inputType="textPersonName"
-        android:hint="ID"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.508"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.487" />
+        android:hint="ID" />
 
     <TextView
         android:id="@+id/textView15"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="190dp"
+        android:layout_marginStart="42dp"
+        android:layout_marginBottom="10dp"
         android:text="Email address"
-        android:textSize="25sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.476"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.507" />
+        android:textSize="25sp" />
 
     <EditText
         android:id="@+id/Text_PW_Email"
-        android:layout_width="350dp"
-        android:layout_height="60dp"
-        android:layout_marginStart="27dp"
-        android:layout_marginTop="385dp"
-        android:layout_marginEnd="27dp"
-        android:layout_marginBottom="270dp"
+        android:layout_width="330dp"
+        android:layout_height="50dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
         android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/button4"
-        android:layout_width="360dp"
-        android:layout_height="65dp"
-        android:layout_marginStart="26dp"
-        android:layout_marginTop="260dp"
-        android:layout_marginEnd="26dp"
+        android:layout_width="330dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
         android:backgroundTint="#2196F3"
         android:text="Send Code"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:textSize="20sp" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+</LinearLayout>
