@@ -15,6 +15,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodMate">
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyDcbQlvGrCxKJnNH4yN9qRnOpa6o1Yackw" />
+
         <activity
             android:name=".LogInActivity"
             android:exported="true">
@@ -35,13 +40,15 @@
             android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"/>
         <activity
             android:name=".ChangeProfileActivity"
             android:exported="true" />
         <activity
             android:name=".ProfileActivity"
+            android:exported="true" />
+        <activity
+            android:name=".LocationActivity"
             android:exported="true" />
     </application>
 
