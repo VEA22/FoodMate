@@ -11,8 +11,22 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
         android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/back_in_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edge"
+            android:text="←"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
 
         <Button
             android:id="@+id/change"
@@ -21,6 +35,7 @@
             android:background="@drawable/edge"
             android:text="수정"
             android:textColor="#000000"
+            android:textSize="20sp"
             app:backgroundTint="@null" />
     </LinearLayout>
 
