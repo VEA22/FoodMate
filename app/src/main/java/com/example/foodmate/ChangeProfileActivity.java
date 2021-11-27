@@ -45,6 +45,14 @@ public class ChangeProfileActivity extends AppCompatActivity {
             }
         });
 
+        Button back_in_change_profile = (Button) findViewById(R.id.back_in_change_profile);
+        back_in_change_profile.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                onBackPressed();
+            }
+        });
+
         click_image = (CircleImageView) findViewById(R.id.change_profile_image);
         // 프로필 사진 클릭 시
         click_image.setOnClickListener(new View.OnClickListener() {

@@ -23,5 +23,12 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button button_back_in_profile = (Button)findViewById(R.id.back_in_profile);
+        button_back_in_profile.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View v){
+                onBackPressed();
+            }
+        });
     }
 }
