@@ -19,7 +19,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="42dp"
-        android:text="ID"
+        android:text="EMAIL"
         android:textSize="28sp" />
 
     <EditText
@@ -29,7 +29,7 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
-        android:hint="Name"
+        android:hint="Example@example.com"
         android:inputType="textPersonName" />
 
     <TextView

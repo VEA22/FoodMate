@@ -31,7 +31,9 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
-        android:inputType="textEmailAddress" />
+        android:inputType="textEmailAddress"
+        android:hint="Example@example.com"
+        />
 
 
     <TextView
@@ -52,7 +54,8 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
-        android:inputType="textPassword" />
+        android:inputType="textPassword"
+        android:hint="More than 6 letters"/>
 
 
     <TextView
@@ -92,6 +95,7 @@
         android:layout_marginBottom="10dp"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
+        android:hint="XXX-XXXX-XXXX"
         android:inputType="phone" />
 
     <TextView
