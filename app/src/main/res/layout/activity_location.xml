@@ -43,7 +43,7 @@
             android:weightSum="10">
 
             <EditText
-                android:id="@+id/et_search"
+                android:id="@+id/et_location_search"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
@@ -54,7 +54,7 @@
                 android:inputType="textPersonName" />
 
             <ImageButton
-                android:id="@+id/btn_search"
+                android:id="@+id/btn_location_search"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_weight="2"
@@ -76,7 +76,7 @@
             android:layout_height="match_parent"
             android:layout_below="@+id/btn_cur_location"
             android:id="@+id/map"
-            tools:context=".MapsActivity"
+            tools:context=".LocationActivity"
             android:name="com.google.android.gms.maps.SupportMapFragment" />
 
     </RelativeLayout>
