@@ -15,7 +15,7 @@ public class FindPwActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_find_pw);
 
-        SendCode_button = (Button) findViewById(R.id.button2);
+        SendCode_button = (Button) findViewById(R.id.button4);
 
         SendCode_button.setOnClickListener(new Button.OnClickListener(){
             @Override

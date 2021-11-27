@@ -14,13 +14,28 @@
         android:orientation="horizontal">
 
         <Button
+            android:id="@+id/back_in_change_profile"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/edge"
+            android:text="←"
+            android:textColor="#000000"
+            android:textSize="20sp"
+            app:backgroundTint="@null" />
+
+        <Space
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1" />
+
+        <Button
             android:id="@+id/complete"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/edge"
             android:text="완료"
             android:textColor="#000000"
-            android:textSize="14sp"
+            android:textSize="20sp"
             app:backgroundTint="@null" />
 
     </LinearLayout>
@@ -159,11 +174,6 @@
 
         </TableLayout>
 
-        <Button
-            android:id="@+id/button3"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="Button" />
     </LinearLayout>
 
 </LinearLayout>
