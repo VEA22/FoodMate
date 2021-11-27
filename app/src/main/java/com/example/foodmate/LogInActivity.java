@@ -9,6 +9,8 @@ import android.widget.EditText;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
+
+
 public class LogInActivity extends AppCompatActivity {
     TextView FindIdText_btn; //id 찾기 글자를 눌렀을 때 처리를 위한 변수
     TextView FindPwText_btn; //pw 찾기 글자를 눌렀을 때 처리를 위한 변수
