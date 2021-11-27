@@ -34,7 +34,7 @@ public class SignupActivity extends AppCompatActivity {
 
         firebaseAuth = FirebaseAuth.getInstance(); //파이어베이스 계정 인스턴스 get
 
-        editTextID = findViewById(R.id.textView12);
+        //editTextID = findViewById(R.id.textView12);
         editTextPW = findViewById(R.id.textView17);
         editTextMail = findViewById(R.id.Text_SignUp_Email);
         editTextPhone = findViewById(R.id.textView18);
@@ -44,11 +44,11 @@ public class SignupActivity extends AppCompatActivity {
             @Override
             //
             public void onClick(View view) {
-                EditText Text_id = (EditText) findViewById(R.id.Text_SignUp_ID);
+                //EditText Text_id = (EditText) findViewById(R.id.Text_SignUp_ID);
                 EditText Text_pw = (EditText) findViewById(R.id.Text_SignUp_PW);
                 EditText Text_email = (EditText) findViewById(R.id.Text_SignUp_Email);
 
-                String id = Text_id.getText().toString();
+                //String id = Text_id.getText().toString();
                 String pw = Text_pw.getText().toString();
                 String email = Text_email.getText().toString();
 
