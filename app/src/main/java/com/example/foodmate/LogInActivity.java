@@ -14,7 +14,7 @@ public class LogInActivity extends AppCompatActivity {
     TextView FindPwText_btn; //pw 찾기 글자를 눌렀을 때 처리를 위한 변수
     TextView SignUp_btn;    //회원가입 글자를 눌렀을 때 처리를 위한 변수
     Button login_button; // 로그인 버튼을 눌렀을 때 처리를 위한 변수
-
+    // 수정
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
