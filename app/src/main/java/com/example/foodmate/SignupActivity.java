@@ -115,11 +115,15 @@ public class SignupActivity extends AppCompatActivity {
                         if (task.isSuccessful()) {
                             final String uid = task.getResult().getUser().getUid(); //가입에 성공한 계정의 uid 추출
                             //user 맵에 프로필 정보 저장
+                            double temp = 0.0;
                             user.put("uid", uid);
                             user.put("mail", mail);
                             user.put("name", name);
                             user.put("phone", phone);
                             user.put("gender", gender);
+                            user.put("latitude", temp);
+                            user.put("longitude", temp);
+                            user.put("address", "");
 
                             //db에 정보 삽입
                             db.collection("user")
