@@ -159,7 +159,7 @@ public class LocationActivity extends AppCompatActivity
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
-                            //Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
                         }
                         else
                         {

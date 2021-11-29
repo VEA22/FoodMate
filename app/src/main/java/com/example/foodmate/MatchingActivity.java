@@ -29,6 +29,12 @@ public class MatchingActivity extends AppCompatActivity {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
     private String user_latitude;
     private String user_longitude;
+    private String js_home_latitude = "36.6062627";
+    private String js_home_longitude = "127.2925354";
+    private String bj_home_latitude = "36.6081661";
+    private String bj_home_longitude = "127.2916509";
+    private String os_station_latitude = "36.6201593";
+    private String os_station_longitude = "127.3275301";
 
 
     @Override
@@ -59,6 +65,21 @@ public class MatchingActivity extends AppCompatActivity {
             }
         });
 
-        //Toast.makeText(MatchingActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+        /*double a = Double.parseDouble(user_latitude);
+        double b = Double.parseDouble(user_longitude);
+        double c = Double.parseDouble(js_home_longitude);
+        double d = Double.parseDouble(js_home_latitude);
+
+        double x = (Math.cos(a/180.0)* 6400 * 2 * 3.14 / 360) * Math.abs(b-c);
+        double y =  111 * Math.abs(a-d);
+        double distance = Math.sqrt(x*x + y*y);
+
+        if (distance < 1.0){
+            Toast.makeText(MatchingActivity.this, "범위내입니다", Toast.LENGTH_SHORT).show();
+        }
+        else{
+            Toast.makeText(MatchingActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
+        }
+*/
     }
 }
