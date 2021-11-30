@@ -48,8 +48,8 @@
         android:layout_gravity="center_horizontal"
         android:background="@drawable/edittext_rounded_corner_rectangle"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:hint="PASSWORD" />
+        android:hint="PASSWORD"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/login_button"
