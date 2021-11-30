@@ -23,6 +23,17 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         ImageButton location_button = (ImageButton) findViewById(R.id.btn_location);
+        ImageButton btn_koreanfood = (ImageButton) findViewById(R.id.koreanfood);
+        ImageButton btn_boonsik = (ImageButton) findViewById(R.id.boonsik);
+        ImageButton btn_sushi = (ImageButton) findViewById(R.id.sushi);
+        ImageButton btn_chicken = (ImageButton) findViewById(R.id.chicken);
+        ImageButton btn_pizza = (ImageButton) findViewById(R.id.pizza);
+        ImageButton btn_jjajang = (ImageButton) findViewById(R.id.jjajang);
+        ImageButton btn_zokbal = (ImageButton) findViewById(R.id.zokbal);
+        ImageButton btn_fastfood = (ImageButton) findViewById(R.id.fastfood);
+        ImageButton btn_italian = (ImageButton) findViewById(R.id.italian);
+
+        Intent intent_cl = new Intent(getApplicationContext(), ChatListActivity.class);
 
         // Toolbar 설정
         Toolbar toolbar = (Toolbar) findViewById(R.id.main_toolbar);
@@ -34,6 +45,61 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), LocationActivity.class);
                 startActivity(intent);
+            }
+        });
+
+        btn_koreanfood.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_boonsik.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_sushi.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_chicken.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_pizza.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_jjajang.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_zokbal.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_fastfood.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
+            }
+        });
+        btn_italian.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                startActivity(intent_cl);
             }
         });
     }
