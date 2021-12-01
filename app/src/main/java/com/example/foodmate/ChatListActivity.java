@@ -53,7 +53,6 @@ public class ChatListActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 final String uid = user.getUid(); //현재 접속 중인 유저 uid 추출
-                Toast.makeText(ChatListActivity.this, uid, Toast.LENGTH_LONG).show();
 
                 //앞에서 추출한 uid를 기반으로 user DB에서 조회한 뒤 현재 로그인 한 유저의 이름 추출
                 db.collection("user").whereEqualTo("uid", uid).get()
