@@ -8,19 +8,56 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
+
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
+
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        final String uid = user.getUid();
+        final TextView text_current_location = (TextView)findViewById(R.id.Text_current_location);
+
+        db.collection("user").whereEqualTo("uid", uid).get()
+                .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                    @Override
+                    public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                        if(task.isSuccessful()){
+                            for(QueryDocumentSnapshot document : task.getResult()){
+                                String address = (String)document.getData().get("address");
+                                if(address == "")
+                                {
+                                    text_current_location.setText("위치를 설정해주세요");
+                                }
+                                else
+                                {
+                                    text_current_location.setText(address);
+                                }
+                            }
+                        }
+                    }
+                });
+
 
         ImageButton location_button = (ImageButton) findViewById(R.id.btn_location);
         ImageButton btn_koreanfood = (ImageButton) findViewById(R.id.koreanfood);
