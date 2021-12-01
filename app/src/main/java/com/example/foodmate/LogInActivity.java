@@ -107,12 +107,13 @@ public class LogInActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if (task.isSuccessful()) {
                             // 로그인 성공
-                            Toast.makeText(LogInActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LogInActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                             FirebaseUser user = firebaseAuth.getCurrentUser();
 
                             //올바른 로그인이 이루어졌을 경우 MainActivity 호출
                             if (user != null) {
                                 Intent intent = new Intent(LogInActivity.this, MainActivity.class);
+                                Toast.makeText(LogInActivity.this, "로그인 성공", Toast.LENGTH_SHORT).show();
                                 startActivity(intent);
                                 //finish();
                             } else {

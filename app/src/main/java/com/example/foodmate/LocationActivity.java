@@ -25,6 +25,7 @@ import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -37,6 +38,8 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
 import java.io.IOException;
 import java.util.List;
@@ -46,6 +49,8 @@ import java.util.Map;
 public class LocationActivity extends AppCompatActivity
         implements OnMapReadyCallback {
 
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private static FirebaseFirestore db = FirebaseFirestore.getInstance();
     private GoogleMap mMap;
     private Geocoder geocoder;
     private Button button;
@@ -53,7 +58,6 @@ public class LocationActivity extends AppCompatActivity
     private EditText editText;
     private FirebaseAuth firebaseAuth;
     private DatabaseReference mPostReference;
-    private FirebaseFirestore db;
     private String address;
     private String latitude ;
     private String longitude;
@@ -148,18 +152,44 @@ public class LocationActivity extends AppCompatActivity
         button.setOnClickListener(new Button.OnClickListener() {
             @Override
             public void onClick(View v){
-                FirebaseFirestore db = FirebaseFirestore.getInstance();
+                final String uid = user.getUid();
 
                 DocumentReference locationRef = db.collection("user")
                         .document("1OJuPqokbP6jNXzqa7sd");
 
+                //uid를 가져 온 후 해당 uid를 가진 문서의 위도 경도값을 업데이트 함
+                db.collection("user").whereEqualTo("uid", uid).get()
+                        .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                            @Override
+                            public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                                if(task.isSuccessful()){
+                                    for(QueryDocumentSnapshot document : task.getResult()){
+                                        locationRef.update("address", address, "latitude", latitude,
+                                                "longitude", longitude).addOnCompleteListener(new OnCompleteListener<Void>() {
+                                            @Override
+                                            public void onComplete(@NonNull Task<Void> task) {
+                                                if(task.isSuccessful())
+                                                {
+                                                    Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
+                                                }
+                                                else
+                                                {
+                                                    Toast.makeText(LocationActivity.this, "실패", Toast.LENGTH_SHORT).show();
+                                                }
+                                            }
+                                        });
+                                    }
+                                }
+                            }
+                        });
+/*
                 locationRef.update("address", address, "latitude", latitude,
                         "longitude", longitude).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
                         if(task.isSuccessful())
                         {
-                            Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
                         }
                         else
                         {
@@ -167,7 +197,7 @@ public class LocationActivity extends AppCompatActivity
                         }
                     }
                 });
-
+*/
 
                 Intent intent_01 = new Intent(getApplicationContext(), MatchingActivity.class);
                 startActivity(intent_01);
