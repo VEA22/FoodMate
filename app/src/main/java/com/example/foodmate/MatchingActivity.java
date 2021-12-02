@@ -75,8 +75,8 @@ public class MatchingActivity extends AppCompatActivity {
                                                 if (dis < 1000){
                                                 Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
                                                 Toast.makeText(MatchingActivity.this, "범위 내 입니다.", Toast.LENGTH_SHORT).show();
-                                                //result[count][0] = (String)document.getData().get("partyName");
-                                                //result[count][1] = Double.toString(dis);
+                                                result[count][0] = (String)document.getData().get("partyName");
+                                                result[count][1] = Double.toString(dis);
                                                 count++;
                                                 Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
                                                 }
@@ -171,6 +171,7 @@ public class MatchingActivity extends AppCompatActivity {
 
 */
     }
+
 
     private static double distance(double lat1, double lon1, double lat2, double lon2, String unit) {
 

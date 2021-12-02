@@ -36,6 +36,8 @@ public class ChatListActivity extends AppCompatActivity {
     private FirebaseFirestore db; //데이터베이스 인스턴스 get
     private CollectionReference userRef;
     private Map<String, Object> party = new HashMap<>(); //데이터베이스 임시 저장 맵
+    public String result[][] = new String[2][2];
+
 
     static String partyName;
     static String latitude;
@@ -47,6 +49,16 @@ public class ChatListActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_chat_list);
+
+        //Intent intent = getIntent();
+
+        //Bundle bundle = intent.getExtras();
+        //int count = bundle.getInt("key", 0);
+
+        //result = bundle.getString("result");
+        result = ((MainActivity) MainActivity.context).result;
+        //Toast.makeText(ChatListActivity.this, result[0], Toast.LENGTH_SHORT).show();
+
 
         db = FirebaseFirestore.getInstance(); // db 인스턴스 get
         userRef = db.collection("user");
@@ -107,8 +119,7 @@ public class ChatListActivity extends AppCompatActivity {
 
     private void getData(){
         // 임의의 데이터입니다.
-        List<String> listTitle = Arrays.asList("국화", "사막", "수국", "해파리", "코알라", "등대", "펭귄", "튤립",
-                "국화", "사막", "수국", "해파리", "코알라", "등대", "펭귄", "튤립");
+        List<String> listTitle = Arrays.asList(result[0][0] + "     " + result[0][1], result[1][0] + "      "  + result[1][1]);
         List<String> listContent = Arrays.asList(
                 "이 꽃은 국화입니다.",
                 "여기는 사막입니다.",
