@@ -18,6 +18,8 @@ import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.CollectionReference;
+import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
@@ -32,9 +34,12 @@ public class ChatListActivity extends AppCompatActivity {
 
     private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser(); //현재 접속 중인 유저 인스턴스 get
     private FirebaseFirestore db; //데이터베이스 인스턴스 get
+    private CollectionReference userRef;
     private Map<String, Object> party = new HashMap<>(); //데이터베이스 임시 저장 맵
 
     static String partyName;
+    static String latitude;
+    static String longitude;
 
     private RecyclerAdapter adapter;
 
@@ -44,6 +49,7 @@ public class ChatListActivity extends AppCompatActivity {
         setContentView(R.layout.activity_chat_list);
 
         db = FirebaseFirestore.getInstance(); // db 인스턴스 get
+        userRef = db.collection("user");
 
         init();
         getData();
@@ -62,10 +68,15 @@ public class ChatListActivity extends AppCompatActivity {
                                 if(task.isSuccessful()){
                                     for(QueryDocumentSnapshot document : task.getResult()){
                                         partyName = (String)document.getData().get("name") + "'s Party";
+                                        latitude = (String)document.getData().get("latitude");
+                                        longitude = (String)document.getData().get("longitude");
+
 
                                         //파티 맵에 정보 저장
                                         party.put("uid", uid);
                                         party.put("partyName", partyName);
+                                        party.put("latitude", latitude);
+                                        party.put("longitude", longitude);
                                         party.put("category", "");
 
                                         //party db set
