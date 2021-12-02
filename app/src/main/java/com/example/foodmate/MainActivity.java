@@ -24,6 +24,7 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DecimalFormat;
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
@@ -37,7 +38,7 @@ public class MainActivity extends AppCompatActivity {
     public double lat1, log1;
     public double lat2, log2;
     public int count = 0;
-    public String result[][] = new String[2][2];
+    public String result[][] = new String[100][2];
     public static Context context;
 
     @Override
@@ -133,19 +134,20 @@ public class MainActivity extends AppCompatActivity {
                                                         log2 = Double.parseDouble(party_longitude);
                                                         String unit = "m";
 
-                                                        double dis = distance(lat1,  log1, lat2,  log2,  unit);
-
-                                                        if (dis < 1000){
+                                                        DecimalFormat df = new DecimalFormat("0");
+                                                        double dis1 = distance(lat1,  log1, lat2,  log2,  unit);
+                                                        String dis = df.format(dis1);
+                                                        if (dis1 < 1000){
                                                             //Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
                                                             //Toast.makeText(MatchingActivity.this, "범위 내 입니다.", Toast.LENGTH_SHORT).show();
                                                             result[count][0] = (String)document.getData().get("partyName");
-                                                            result[count][1] = Double.toString(dis);
+                                                            result[count][1] = Double.toString(dis1);
                                                             count++;
                                                             //Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
                                                         }
                                                         else{
-                                                            //Toast.makeText(MatchingActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
-                                                            //Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(MainActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
+                                                            Toast.makeText(MainActivity.this, Double.toString(dis1), Toast.LENGTH_SHORT).show();
                                                         }
                                                     }
                                                 } else {
@@ -155,9 +157,7 @@ public class MainActivity extends AppCompatActivity {
 
 
                                                 Intent intent = new Intent(getApplicationContext(), ChatListActivity.class);
-
                                                 //Bundle bundle = new Bundle();
-
                                                 //.putString("result", result);
 
 
