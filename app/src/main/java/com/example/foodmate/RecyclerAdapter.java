@@ -1,10 +1,13 @@
 package com.example.foodmate;
 
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -13,7 +16,7 @@ import com.example.foodmate.R;
 
 import java.util.ArrayList;
 
-public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder>{
+public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
 
     // adapter에 들어갈 list 입니다.
     private ArrayList<Data> listData = new ArrayList<>();
@@ -46,21 +49,36 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
     // RecyclerView의 핵심인 ViewHolder 입니다.
     // 여기서 subView를 setting 해줍니다.
-    class ItemViewHolder extends RecyclerView.ViewHolder {
+    class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         private TextView textView1;
         private ImageView imageView;
+        private Data data;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            textView1 = itemView.findViewById(R.id.textView1);
-            imageView = itemView.findViewById(R.id.imageView);
+            textView1 = itemView.findViewById(R.id.Party_name);
+            imageView = itemView.findViewById(R.id.Party_image);
         }
 
         void onBind(Data data) {
+            this.data = data;
+
             textView1.setText(data.getTitle());
             imageView.setImageResource(data.getResId());
+
+            textView1.setOnClickListener(this);
+            imageView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+                case R.id.LinearItem:
+
+                    break;
+            }
         }
     }
 }
