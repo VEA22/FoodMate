@@ -59,6 +59,8 @@ public class MainActivity extends AppCompatActivity {
                 });
 
 
+
+
         ImageButton location_button = (ImageButton) findViewById(R.id.btn_location);
         ImageButton btn_koreanfood = (ImageButton) findViewById(R.id.koreanfood);
         ImageButton btn_boonsik = (ImageButton) findViewById(R.id.boonsik);

@@ -3,6 +3,7 @@ package com.example.foodmate;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -21,6 +22,8 @@ public class MatchingActivity extends AppCompatActivity {
     private static FirebaseFirestore db = FirebaseFirestore.getInstance();
     public String user_latitude;
     public String user_longitude;
+    public String party_latitude;
+    public String party_longitude;
     public String js_home_latitude = "36.6062627";
     public String js_home_longitude = "127.2925354";
     public String bj_home_latitude = "36.6081661";
@@ -31,6 +34,7 @@ public class MatchingActivity extends AppCompatActivity {
     public double lat2, log2;
     public int count = 0;
     public String pid;
+    public String result[][];
     //public String Document_Id;
 
 
@@ -38,7 +42,6 @@ public class MatchingActivity extends AppCompatActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_matching);
-
         final String uid = user.getUid();
         //Toast.makeText(MatchingActivity.this, Document_Id, Toast.LENGTH_SHORT).show();
 
@@ -48,27 +51,59 @@ public class MatchingActivity extends AppCompatActivity {
                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                         if(task.isSuccessful()){
                             for(QueryDocumentSnapshot document : task.getResult()){
-                                count++;
                                 user_latitude = (String)document.getData().get("latitude");
                                 user_longitude = (String)document.getData().get("longitude");
 
-
-                                Double a = Double.parseDouble(user_latitude);
-                                Double b = Double.parseDouble(user_longitude);
-                                Double c = Double.parseDouble(bj_home_latitude);
-                                Double d = Double.parseDouble(bj_home_longitude);
-                                String unit = "m";
 
                                 db.collection("party").get().addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
                                     @Override
                                     public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                         if (task.isSuccessful()) {
                                             for (QueryDocumentSnapshot document : task.getResult()) {
-                                                Toast.makeText(MatchingActivity.this, document.getId(), Toast.LENGTH_SHORT).show();
+                                                party_latitude = (String)document.getData().get("latitude");
+                                                party_longitude = (String)document.getData().get("longitude");
+
+
+                                                lat1 = Double.parseDouble(user_latitude);
+                                                log1 = Double.parseDouble(user_longitude);
+                                                lat2 = Double.parseDouble(party_latitude);
+                                                log2 = Double.parseDouble(party_longitude);
+                                                String unit = "m";
+
+                                                double dis = distance(lat1,  log1, lat2,  log2,  unit);
+
+                                                if (dis < 1000){
+                                                Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(MatchingActivity.this, "범위 내 입니다.", Toast.LENGTH_SHORT).show();
+                                                //result[count][0] = (String)document.getData().get("partyName");
+                                                //result[count][1] = Double.toString(dis);
+                                                count++;
+                                                Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
+                                                }
+                                                else{
+                                                Toast.makeText(MatchingActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
+                                                Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
+                                                }
                                             }
                                         } else {
                                             //Log.d(TAG, "Error getting documents: ", task.getException());
                                         }
+/*
+                                        Intent intent_Matching_To_Main = new Intent(MatchingActivity.this, MainActivity.class);
+
+                                        Bundle bundle = new Bundle();
+                                        for(int i = 0; i < count ; i++)
+                                        {
+                                            bundle.putStringArray("result", result[count]);
+                                        }
+                                        bundle.putInt("Key", count);
+
+                                        Toast.makeText(MatchingActivity.this, "전환 성공", Toast.LENGTH_SHORT).show();
+
+                                        startActivity(intent_Matching_To_Main);
+
+
+ */
                                     }
                                 });
 
@@ -84,7 +119,6 @@ public class MatchingActivity extends AppCompatActivity {
                                     //Toast.makeText(MatchingActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
                                     //Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
                                 //}
-
                             }
                         }
                         else {
@@ -117,17 +151,14 @@ public class MatchingActivity extends AppCompatActivity {
                 }
             }
         });*/
-        Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
 /*
-        Double a = Double.parseDouble(user_latitude);
-        Double b = Double.parseDouble(user_longitude);
-        Double c = Double.parseDouble(bj_home_latitude);
-        Double d = Double.parseDouble(bj_home_longitude);
-        //lat2 = Double.parseDouble(bj_home_latitude);
-        //log2 = Double.parseDouble(bj_home_longitude);
+        lat1 = Double.parseDouble(user_latitude);
+        log1 = Double.parseDouble(user_longitude);
+        lat2 = Double.parseDouble(party_latitude);
+        log2 = Double.parseDouble(party_longitude);
         String unit = "m";
-        Toast.makeText(MatchingActivity.this, Double.toString(a), Toast.LENGTH_SHORT).show();
-        double dis = distance(a,  b, c,  d,  unit);
+        //Toast.makeText(MatchingActivity.this, Double.toString(a), Toast.LENGTH_SHORT).show();
+        double dis = distance(lat1,  log1, lat2,  log2,  unit);
 
         if (dis < 1000){
             Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
