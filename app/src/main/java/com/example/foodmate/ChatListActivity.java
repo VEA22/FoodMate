@@ -99,7 +99,7 @@ public class ChatListActivity extends AppCompatActivity {
                             }
                         });
 
-                Intent intent = new Intent(getApplicationContext(), temp_chat.class);
+                Intent intent = new Intent(getApplicationContext(), ChatListActivity.class);
                 startActivity(intent);
             }
         });

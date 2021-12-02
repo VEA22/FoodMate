@@ -20,9 +20,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.FoodMate">
         <activity
-            android:name=".temp_chat"
-            android:exported="false" />
-        <activity
             android:name=".ChatListActivity"
             android:exported="false" />
         <activity
