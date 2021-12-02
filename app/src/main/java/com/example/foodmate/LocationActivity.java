@@ -154,8 +154,6 @@ public class LocationActivity extends AppCompatActivity
             public void onClick(View v){
                 final String uid = user.getUid();
 
-                DocumentReference locationRef = db.collection("user")
-                        .document("1OJuPqokbP6jNXzqa7sd");
 
                 //uid를 가져 온 후 해당 uid를 가진 문서의 위도 경도값을 업데이트 함
                 db.collection("user").whereEqualTo("uid", uid).get()
@@ -164,6 +162,9 @@ public class LocationActivity extends AppCompatActivity
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if(task.isSuccessful()){
                                     for(QueryDocumentSnapshot document : task.getResult()){
+                                        DocumentReference locationRef = db.collection("user")
+                                                .document(document.getId());
+
                                         locationRef.update("address", address, "latitude", latitude,
                                                 "longitude", longitude).addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override
