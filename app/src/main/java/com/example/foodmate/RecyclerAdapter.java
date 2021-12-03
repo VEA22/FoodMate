@@ -14,10 +14,21 @@ import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodmate.R;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.QueryDocumentSnapshot;
+import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 
 public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemViewHolder> {
+
+    private FirebaseUser user = FirebaseAuth.getInstance().getCurrentUser();
+    private static FirebaseFirestore db = FirebaseFirestore.getInstance();
 
     // adapter에 들어갈 list 입니다.
     private ArrayList<Data> listData = new ArrayList<>();
@@ -76,11 +87,36 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
 
         @Override
         public void onClick(View view) {
+            final String uid = user.getUid();
+
+            db.collection("user").whereEqualTo("uid", uid).get()
+                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
+                        @Override
+                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
+                            if(task.isSuccessful()){
+                                for(QueryDocumentSnapshot document : task.getResult()){
+                                    Toast.makeText(itemView.getContext(), data.getTitle(), Toast.LENGTH_SHORT).show();
+                                    Intent intent_cr = new Intent(itemView.getContext(), ChatRoom.class);
+
+                                    intent_cr.putExtra("chatName", data.getName());
+                                    intent_cr.putExtra("userName", (String)document.getData().get("name"));
+                                    itemView.getContext().startActivity(intent_cr);
+
+                                }
+                            }
+                            else {
+                            }
+                        }
+                    });
+/*
             Toast.makeText(itemView.getContext(), data.getTitle(), Toast.LENGTH_SHORT).show();
             Intent intent_cr = new Intent(itemView.getContext(), ProfileActivity.class);
-            intent_cr.putExtra("chatName", "psh");
+
+            intent_cr.putExtra("chatName", data.getName());
             intent_cr.putExtra("userName", "pbj");
             itemView.getContext().startActivity(intent_cr);
+
+ */
         }
     }
 }

@@ -193,6 +193,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 startActivity(intent_cl);
             }
+
         });
         btn_sushi.setOnClickListener(new View.OnClickListener(){
             @Override

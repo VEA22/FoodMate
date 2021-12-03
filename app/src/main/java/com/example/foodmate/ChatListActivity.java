@@ -37,6 +37,7 @@ public class ChatListActivity extends AppCompatActivity {
     private CollectionReference userRef;
     private Map<String, Object> party = new HashMap<>(); //데이터베이스 임시 저장 맵
     public String result[][] = new String[100][2];
+    public static String userName;
 
 
     static String partyName;
@@ -79,10 +80,10 @@ public class ChatListActivity extends AppCompatActivity {
                             public void onComplete(@NonNull Task<QuerySnapshot> task) {
                                 if(task.isSuccessful()){
                                     for(QueryDocumentSnapshot document : task.getResult()){
+                                        userName = (String)document.getData().get("name");
                                         partyName = (String)document.getData().get("name") + "'s Party";
                                         latitude = (String)document.getData().get("latitude");
                                         longitude = (String)document.getData().get("longitude");
-
 
                                         //파티 맵에 정보 저장
                                         party.put("uid", uid);
@@ -94,15 +95,23 @@ public class ChatListActivity extends AppCompatActivity {
                                         //party db set
                                         db.collection("party").add(party);
                                         Toast.makeText(ChatListActivity.this, "파티 DB 생성 완료", Toast.LENGTH_LONG).show();
+
+                                        Intent intent = new Intent(getApplicationContext(), ChatRoom.class);
+                                        intent.putExtra("chatName", partyName);
+                                        intent.putExtra("userName", userName);
+                                        startActivity(intent);
+
                                     }
                                 }
                             }
                         });
-
+/*
                 Intent intent = new Intent(getApplicationContext(), ChatRoom.class);
                 intent.putExtra("chatName", "psh");
                 intent.putExtra("userName", "pbj");
                 startActivity(intent);
+
+ */
             }
         });
     }
@@ -121,9 +130,13 @@ public class ChatListActivity extends AppCompatActivity {
 
     private void getData(){
 
+
         for (int i = 0; i < ((MainActivity) MainActivity.context).count; i++) {
-            // 각 List의 값들을 data 객체에 set 해줍니다.
+            // 각 배열의 값들을 data 객체에 set 해줍니다.
             Data data = new Data();
+
+            data.setName(result[i][0]);
+            data.setDistance(result[i][0]);
             data.setTitle(result[i][0] + "    "  +  result[i][1] + "m");
 
             // 각 값이 들어간 data를 adapter에 추가합니다.
