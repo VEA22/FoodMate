@@ -99,7 +99,9 @@ public class ChatListActivity extends AppCompatActivity {
                             }
                         });
 
-                Intent intent = new Intent(getApplicationContext(), ChatListActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ChatRoom.class);
+                intent.putExtra("chatName", "psh");
+                intent.putExtra("userName", "pbj");
                 startActivity(intent);
             }
         });

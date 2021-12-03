@@ -10,6 +10,7 @@ import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.google.firebase.database.ChildEventListener;
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +44,8 @@ public class ChatRoom extends AppCompatActivity {
         Intent intent = getIntent();
         CHAT_NAME = intent.getStringExtra("chatName");
         USER_NAME = intent.getStringExtra("userName");
+
+        Toast.makeText(getApplicationContext(), CHAT_NAME + "     " + USER_NAME, Toast.LENGTH_SHORT).show();
 
         // 채팅 방 입장
         openChat(CHAT_NAME);

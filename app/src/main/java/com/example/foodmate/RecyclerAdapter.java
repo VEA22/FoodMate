@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.view.menu.MenuView;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.foodmate.R;
@@ -51,34 +52,35 @@ public class RecyclerAdapter extends RecyclerView.Adapter<RecyclerAdapter.ItemVi
     // 여기서 subView를 setting 해줍니다.
     class ItemViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
-        private TextView textView1;
-        private ImageView imageView;
+        private TextView party_name;
+        private ImageView party_image;
         private Data data;
 
         ItemViewHolder(View itemView) {
             super(itemView);
 
-            textView1 = itemView.findViewById(R.id.Party_name);
-            imageView = itemView.findViewById(R.id.Party_image);
+            party_name = itemView.findViewById(R.id.Party_name);
+            party_image = itemView.findViewById(R.id.Party_image);
         }
 
         void onBind(Data data) {
             this.data = data;
 
-            textView1.setText(data.getTitle());
-            imageView.setImageResource(data.getResId());
+            party_name.setText(data.getTitle());
+            party_image.setImageResource(data.getResId());
 
-            textView1.setOnClickListener(this);
-            imageView.setOnClickListener(this);
+            itemView.setOnClickListener(this);
+            party_name.setOnClickListener(this);
+            party_image.setOnClickListener(this);
         }
 
         @Override
         public void onClick(View view) {
-            switch (view.getId()) {
-                case R.id.LinearItem:
-
-                    break;
-            }
+            Toast.makeText(itemView.getContext(), data.getTitle(), Toast.LENGTH_SHORT).show();
+            Intent intent_cr = new Intent(itemView.getContext(), ProfileActivity.class);
+            intent_cr.putExtra("chatName", "psh");
+            intent_cr.putExtra("userName", "pbj");
+            itemView.getContext().startActivity(intent_cr);
         }
     }
 }
