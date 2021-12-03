@@ -120,8 +120,7 @@ public class LogInActivity extends AppCompatActivity {
                             }
                         } else {
                             // 로그인 실패
-                            //Toast.makeText(LogInActivity.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
-                            Toast.makeText(LogInActivity.this, email+password, Toast.LENGTH_SHORT).show();
+                            Toast.makeText(LogInActivity.this, "아이디 또는 비밀번호가 일치하지 않습니다.", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

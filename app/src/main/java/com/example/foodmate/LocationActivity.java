@@ -143,9 +143,9 @@ public class LocationActivity extends AppCompatActivity
             }
         });
 
-        LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));
+        LatLng seoul = new LatLng(37.566, 126.977);
+        mMap.addMarker(new MarkerOptions().position(seoul).title("Marker in Seoul"));
+        mMap.moveCamera(CameraUpdateFactory.newLatLng(seoul));
 
 
 
@@ -171,7 +171,7 @@ public class LocationActivity extends AppCompatActivity
                                             public void onComplete(@NonNull Task<Void> task) {
                                                 if(task.isSuccessful())
                                                 {
-                                                    Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
+                                                    //Toast.makeText(LocationActivity.this, "성공", Toast.LENGTH_SHORT).show();
                                                 }
                                                 else
                                                 {

@@ -146,8 +146,8 @@ public class MainActivity extends AppCompatActivity {
                                                             //Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
                                                         }
                                                         else{
-                                                            Toast.makeText(MainActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
-                                                            Toast.makeText(MainActivity.this, Double.toString(dis1), Toast.LENGTH_SHORT).show();
+                                                            //Toast.makeText(MainActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
+                                                            //Toast.makeText(MainActivity.this, Double.toString(dis1), Toast.LENGTH_SHORT).show();
                                                         }
                                                     }
                                                 } else {

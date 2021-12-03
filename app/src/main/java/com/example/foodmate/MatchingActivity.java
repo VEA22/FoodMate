@@ -73,16 +73,16 @@ public class MatchingActivity extends AppCompatActivity {
                                                 double dis = distance(lat1,  log1, lat2,  log2,  unit);
 
                                                 if (dis < 1000){
-                                                Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
-                                                Toast.makeText(MatchingActivity.this, "범위 내 입니다.", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MatchingActivity.this, "범위 내 입니다.", Toast.LENGTH_SHORT).show();
                                                 result[count][0] = (String)document.getData().get("partyName");
                                                 result[count][1] = Double.toString(dis);
                                                 count++;
-                                                Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MatchingActivity.this, Double.toString(count), Toast.LENGTH_SHORT).show();
                                                 }
                                                 else{
-                                                Toast.makeText(MatchingActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
-                                                Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MatchingActivity.this, "범위 밖 입니다.", Toast.LENGTH_SHORT).show();
+                                                //Toast.makeText(MatchingActivity.this, Double.toString(dis), Toast.LENGTH_SHORT).show();
                                                 }
                                             }
                                         } else {
@@ -122,7 +122,7 @@ public class MatchingActivity extends AppCompatActivity {
                             }
                         }
                         else {
-                            Toast.makeText(MatchingActivity.this, "가져오기 실패", Toast.LENGTH_SHORT).show();
+                            //Toast.makeText(MatchingActivity.this, "가져오기 실패", Toast.LENGTH_SHORT).show();
                         }
                     }
                 });

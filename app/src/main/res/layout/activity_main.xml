@@ -19,12 +19,14 @@
 
             <TextView
                 android:id="@+id/Text_current_location"
-                android:layout_width="wrap_content"
+                android:layout_width="170dp"
                 android:layout_height="wrap_content"
                 android:gravity="center_vertical"
                 android:text="현재 위치"
                 android:textSize="18sp"
-                android:textStyle="bold" />
+                android:textStyle="bold"
+                android:maxLines="1"
+                android:ellipsize="end" />
 
             <ImageButton
                 android:id="@+id/btn_location"
